@@ -1,0 +1,35 @@
+## サービス
+apiVersion: v1
+kind: Service
+metadata:
+  name: wso2am-service
+spec:
+  type: NodePort
+  ports:
+    - port: 9443
+      targetPort: 9443
+  selector:
+    app: wso2am
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wso2am-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wso2am
+  template:
+    metadata:
+      labels:
+        app: wso2am
+    spec:
+      containers:
+        - name: wso2am
+          image: simultechnology/wso2am:3.1.0-centos
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9443
+
+
