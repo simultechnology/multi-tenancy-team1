@@ -1,0 +1,4 @@
+resources:
+  - minio-standalone-pvc.yaml
+  - minio-standalone-deployment.yaml
+  - minio-standalone-service.yaml

@@ -4,3 +4,4 @@ bases:
   - ./workloads/backend/
   - ./workloads/web-deploy/
   - ./workloads/wso2/
+  - ./workloads/minio/
